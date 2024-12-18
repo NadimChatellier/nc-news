@@ -1,22 +1,25 @@
-import { useState } from 'react'
-import Header from './Header'
-import { Route, Routes} from 'react-router-dom'
-import './App.css'
+import { useState } from 'react';
+import Header  from './Header';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import Articles from './Articles';
+
+import './App.css';
 
 function App() {
+  
 
   return (
-    <>
-      <div className="header-container">
-      <Header />
-      {/* <PFP /> */}
-    </div>
-    <Routes>
-      <Route path="/" element={<Articles />} />
-    </Routes>
-   
-    </>
-  )
+    <Router>
+        <div className="header-container">
+          <Header />
+          {/* <PFP /> */}
+        </div>
+        <Articles />
+
+    </Router>
+    
+  );
 }
 
-export default App
+export default App;
+
