@@ -2,16 +2,25 @@ import axios from "axios";
 
 const api = axios.create({ baseURL: "https://mithril-news.onrender.com/api" });
 
-function getArticles() {
-    return api.get("/articles")
+function getArticles(slug, sortBy= "", order="") {
+    let url = slug ? `/articles?topic=${slug}` : '/articles';
+    if (sortBy && order) {
+        const andOrQuestionMark = slug? "&" : "?";
+        url += andOrQuestionMark
+        url += `sort_by=${sortBy}&order=${order}`;
+    }
+    console.log(url);
+    return api.get(url)
         .then((res) => {
-            console.log(res.data)
-            return(res.data);
+            console.log(res.data);
+            return res.data;
         })
         .catch((error) => {
             console.error("Error fetching articles:", error.message);
         });
 }
+
+
 
 function getArticleData(articleID) {
     return api.get(`/articles/${articleID}`)
@@ -85,7 +94,14 @@ function handleCommentDelete(comment_id){
 }
 
 
+function getTopics(){
+    return api.get(`topics`)
+    .then((res) => {
+        return res
+    })
+}
 
 
 
-export {getArticles, getArticleData, getComments, postComment, handleCommentVotes, handleArticleVotes, handleCommentDelete};
+
+export {getArticles, getArticleData, getComments, postComment, handleCommentVotes, handleArticleVotes, handleCommentDelete, getTopics};

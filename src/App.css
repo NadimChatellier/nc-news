@@ -21,4 +21,36 @@
   color: #EDEDED;
   padding: 20px;
 }
+.navbar {
+  background-color: #333;
+  font-family: Arial, sans-serif;
+  height: 54px;
+  display: flex;
+  align-items: center;
+}
 
+.navbar-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.taskBarElement {
+  margin: 0;
+}
+
+.navbar-link {
+  display: block;
+  color: #90CAF0;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar-link:hover {
+  background-color: #111;
+  color: white;
+}
