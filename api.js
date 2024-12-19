@@ -24,16 +24,20 @@ function getArticleData(articleID) {
         });
 }
 
-function getComments(article_id) {
-    return api.get(`/articles/${article_id}/comments`)
-        .then((res) => {
-            console.log(res.data)
-            return(res.data);
-        })
+function getComments(articleId, optionalQuery = {}) {
+    const { limit = 10, p = 1 } = optionalQuery;
+    const url = `/articles/${articleId}/comments?p=${p}&limit=${limit}`;
+    return api.get(url)
+        .then((res) => res.data)
         .catch((error) => {
             console.error(error.message);
+            throw error;
         });
 }
+
+
+  
+
 
 function postComment(articleId, newComment) {
     console.log(articleId + "<<<<<<<< in api.js")
@@ -48,7 +52,40 @@ function postComment(articleId, newComment) {
         });
 }
 
+function handleArticleVotes(article_id, vote){
+    return api.patch(`/articles/${article_id}`, { inc_votes: vote})
+    .then((res) => {
+        console.log(res)
+    })
+}
+
+function handleCommentVotes(comment_id, vote) {
+    return api.patch(`/comments/${comment_id}`, { inc_votes: vote })
+        .then((res) => {
+            console.log('Successfully updated comment:', res.data);
+            // Optionally update the UI or state with the new votes
+           
+        })
+        .catch((err) => {
+            console.error('Failed to update comment votes:', err.message);
+            if (err.response && err.response.status === 404) {
+                console.error('Comment not found:', comment_id);
+            } else {
+                console.error('Unexpected error:', err);
+            }
+            // Optionally show an error message to the user here
+        });
+}
+
+function handleCommentDelete(comment_id){
+    return api.delete(`comments/${comment_id}`)
+    .then((res)=>{
+        console.log(res.status)
+    })
+}
 
 
 
-export {getArticles, getArticleData, getComments, postComment};
+
+
+export {getArticles, getArticleData, getComments, postComment, handleCommentVotes, handleArticleVotes, handleCommentDelete};

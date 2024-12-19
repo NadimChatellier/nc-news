@@ -1,9 +1,24 @@
+/* App.css */
+
 .header-container {
-  display: flex; /* Align children inline */
-  justify-content: space-between; /* Push Header to the left and PFP to the right */
-  align-items: center; /* Vertically center align items */
-  padding: 10px 20px; /* Optional padding for spacing */
-  background-color: #ffffff; /* Adjust background color as needed */
-  background-color: red;
-  border-bottom: 1px solid #ccc; /* Optional border for separation */
+  background-color: #3C3C4E; /* Darker background for a more dramatic effect */
+  padding: 15px; /* Adjust for more spacing */
+  border-bottom: 2px solid #6B5DE6; /* Add a subtle border for definition */
 }
+
+.header-title {
+  color: #EDEDED; /* Light color for text to stand out against dark background */
+  text-align: center;
+  font-size: 2.5em; /* Larger font size for emphasis */
+  margin: 0;
+  font-weight: bold; /* Make the text more prominent */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow for readability */
+}
+
+
+.content-container {
+  background-color: #2C2C3E;
+  color: #EDEDED;
+  padding: 20px;
+}
+
