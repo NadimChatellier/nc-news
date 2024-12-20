@@ -23,7 +23,7 @@ function App() {
       >
         <Routes>
           {/* Default route for all articles */}
-          <Route path="/articles" element={<Articles />} />
+          <Route path="/" element={<Articles />} />
           {/* Dynamic route for filtered articles by topic */}
           <Route path="/articles/:slug" element={<Articles />} />
         </Routes>

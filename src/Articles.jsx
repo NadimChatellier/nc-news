@@ -12,6 +12,8 @@ import Button from "@mui/material/Button";
 import CardActionArea from "@mui/material/CardActionArea";
 import Article from "./Article";
 import SortDropdown from "./SortDropDown";
+import CreateArticleButton from "./CreateArticle";
+import CreateArticleModal from "./CreateArticleModal";
 
 function Articles() {
   const [articles, setArticles] = useState([]); // Articles state
@@ -23,8 +25,18 @@ function Articles() {
   const [sortBy, setSortBy] = useState('created_at'); // Default sort by Date
   const [order, setOrder] = useState('asc'); // Default order ascending
 
+  const [isCreateArticleModalOpen, setIsCreateArticleModalOpen] = useState(false);
 
-  
+  const handleOpenCreateArticleModal = () => setIsCreateArticleModalOpen(true);
+  const handleCloseCreateArticleModal = () => setIsCreateArticleModalOpen(false);
+
+  const handleCreateArticle = (articleData) => {
+    console.log('New Article Data:', articleData);
+    // Here you can add your API call or state update logic
+    // For example, to save the article data
+    setIsCreateArticleModalOpen(false);
+  };
+
   useEffect(() => {
     const isHomepage = !slug;
     
@@ -39,8 +51,6 @@ function Articles() {
         console.error("Error fetching articles:", error);
       });
   }, [slug, sortBy, order]); // Refetch articles when the topic slug or sorting changes
-
-
 
   const handleOpenModal = (article) => {
     setSelectedArticle(article);
@@ -129,6 +139,13 @@ function Articles() {
         openModal={openModal}
         handleCloseModal={() => setOpenModal(false)}
       />
+      <CreateArticleButton onClick={handleOpenCreateArticleModal} />
+      <CreateArticleModal
+        open={isCreateArticleModalOpen}
+        onClose={handleCloseCreateArticleModal}
+        onSubmit={handleCreateArticle}
+      />
+      {/* Other components like SortDropdown, Article components can go here */}
     </>
   );
 }

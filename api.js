@@ -101,7 +101,14 @@ function getTopics(){
     })
 }
 
+function postArticle(data){
+    return api.post('/articles', data)
+    .then((res) => {
+        console.log("post was successful! Check it out: " + res.data.article_id)
+    })
+}
 
 
 
-export {getArticles, getArticleData, getComments, postComment, handleCommentVotes, handleArticleVotes, handleCommentDelete, getTopics};
+
+export {getArticles, getArticleData, getComments, postComment, handleCommentVotes, handleArticleVotes, handleCommentDelete, getTopics, postArticle};
