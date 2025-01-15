@@ -25,7 +25,7 @@ This repository hosts the frontend portion of the application, which allows user
 
 ## Installation
 
-### 1. Clone the Repository
+##1. Clone the Repository
 
 ```bash
 git clone https://github.com/NadimChatellier/nc-news
