@@ -28,7 +28,7 @@ This repository hosts the frontend portion of the application, which allows user
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/NadimChatellier/Mithril-news-frontend.git
+git clone https://github.com/NadimChatellier/nc-news
 
 ### 2. Install dependencies
 
