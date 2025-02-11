@@ -1,5 +1,9 @@
 # Mithril News - Frontend
 
+![image](https://github.com/user-attachments/assets/820dd353-cc3f-4082-9bbc-27dff70dfdfb)
+![image](https://github.com/user-attachments/assets/820dd353-cc3f-4082-9bbc-27dff70dfdfb)
+
+
 ## Project Overview
 
 **Mithril News** is a fullstack application that allows users to post, interact with, and browse articles. The frontend is built using **React** with **Vite** as the build tool, providing a fast and efficient development experience. The app communicates with the backend via API calls, and the user interface is designed with **Material UI (MUI)** for a responsive, modern design.
