@@ -1,8 +1,8 @@
 # Mithril News - Frontend
 
 ![image](https://github.com/user-attachments/assets/820dd353-cc3f-4082-9bbc-27dff70dfdfb)
-![image](https://github.com/user-attachments/assets/820dd353-cc3f-4082-9bbc-27dff70dfdfb)
 
+![image](https://github.com/user-attachments/assets/a37d3856-ee44-47cf-a04c-ceeae202c5ba)
 
 ## Project Overview
 
